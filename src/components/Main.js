@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Main extends Component {
-  render() {
-    return (
-      <main>
-         <div className="container my-5">
+const Main = ({ books }) => {
+  return (
+    <main>
+      <div className="container my-5">
         <h2 className="text-center mb-4">Books Available</h2>
         <div className="row">
-          {this.props.books.map((book) => (
+          {books.map((book) => (
             <div key={book.id} className="col-md-4 mb-4">
               <div className="card h-100 shadow-sm">
                 <div className="card-body">
@@ -24,9 +23,8 @@ class Main extends Component {
           ))}
         </div>
       </div>
-      </main>
-    );
-  }
-}
+    </main>
+  );
+};
 
 export default Main;

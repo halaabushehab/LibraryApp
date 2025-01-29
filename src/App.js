@@ -1,25 +1,27 @@
-import React, { useState } from 'react';
-import './App.css';
-import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
+// src/App.js
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components//Navbar";
+import AboutUs from "./components/AboutUs";
+import ContactUs from "./components/ContactUs";
+import SignUp from "./components/SignUp";
+import BookCatalog from "./components/BookCatalog";
+import Footer from "./components//Footer";
 
-const App = () => {
-  // استخدام useState لإدارة الحالة
-  const [books, setBooks] = useState([
-    { id: 1, title: "بينما ينام العالم ", author: "سوزان أبو الهوى ", isbn: "978-99921-42-59-2" },
-    { id: 2, title: "الحاوي في الطب", author: "ابو بكر الرازي", isbn: "893847239479" },
-    { id: 3, title: " قناديل ملك الجليل ", author: "	إبراهيم نصر الله  ", isbn: "	978-6144-21-468-8" },
-    { id: 4, title: "  أرني أنظر إليك ", author: " خولة حمدي ", isbn: "893847239479" }
-  ]);
-
+function App() {
   return (
-    <div className="App">
-      <Header />
-      <Main books={books} />
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/catalog" element={<BookCatalog />} />
+        <Route path="/book-catalog" element={<BookCatalog />} />
+
+      </Routes>
       <Footer />
-    </div>
+    </Router>
   );
-};
+}
 
 export default App;
